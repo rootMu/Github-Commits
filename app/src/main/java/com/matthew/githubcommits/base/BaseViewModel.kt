@@ -1,6 +1,6 @@
 package com.matthew.githubcommits.base
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.matthew.githubcommits.di.components.DaggerViewModelInjector
 import com.matthew.githubcommits.di.components.ViewModelInjector
 import com.matthew.githubcommits.di.modules.NetworkModule
