@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.matthew.githubcommits.modules.ui.commit.CommitViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/small_gap"
+            android:paddingRight="@dimen/small_gap"
+            android:paddingBottom="@dimen/small_gap">
+
+
+        <ImageView android:id="@+id/author_image"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   android:layout_width="@dimen/commit_image_width"
+                   android:layout_height="@dimen/commit_image_width"
+                   android:layout_marginTop="@dimen/small_gap"
+                   android:layout_marginBottom="@dimen/small_gap"
+                   app:mutableImage="@{viewModel.getAuthorImage()}"/>
+
+        <TextView
+                android:id="@+id/commit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:mutableText="@{viewModel.getCommitTitle()}"
+                android:layout_marginStart="@dimen/small_gap"
+                android:textSize="@dimen/title_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/author_image"
+                app:layout_constraintTop_toTopOf="@id/author_image" />
+
+        <TextView
+                android:id="@+id/author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_gap"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/small_text"
+                app:mutableText="@{viewModel.getAuthorName()}"
+                app:layout_constraintStart_toEndOf="@id/author_image"
+                app:layout_constraintBottom_toBottomOf="@id/author_image" />
+
+        <TextView
+                android:id="@+id/commit_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_gap"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/small_text"
+                app:mutableText="@{viewModel.getCommitTime()}"
+                app:layout_constraintStart_toEndOf="@id/author_name"
+                app:layout_constraintBottom_toBottomOf="@id/author_image"  />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
